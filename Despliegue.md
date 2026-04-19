@@ -1,4 +1,3 @@
-
 # Despliegue Pokedex Angular en Azure App Service
 
 ## 1. Crear la aplicación web
@@ -8,14 +7,18 @@
    - Nombre de la instancia: web-pokemon-app-jma
    - Pila del entorno: .NET 10 LTS
    - Región: East US
-3. Hacer clic en Revisar y crear.
-4. Luego hacer clic en Crear.
+3. Hacer clic en **Revisar y crear**.
+4. Luego hacer clic en **Crear**.
 5. Esperar a que la aplicación termine de desplegarse.
 
+---
+
 ## 2. Acceder a herramientas avanzadas
-1. Cuando la aplicación web-pokemon-app-jma esté lista.
-2. Ir a Herramientas de desarrollo.
-3. Entrar en Herramientas avanzadas.
+1. Cuando la aplicación `web-pokemon-app-jma` esté lista.
+2. Ir a **Herramientas de desarrollo**.
+3. Entrar en **Herramientas avanzadas**.
+
+---
 
 ## 3. Preparar el proyecto Angular
 1. Ir a la cuenta de GitHub.
@@ -29,13 +32,17 @@
 7. Esto generará la carpeta:
    dist/
 
+---
+
 ## 4. Subir archivos a Azure usando Kudu
 1. Volver a Azure.
-2. Ir a Herramientas avanzadas.
+2. Ir a **Herramientas avanzadas**.
 3. Se abrirá Kudu.
 4. En Kudu seleccionar:
-   - Debug console
+   - Debug Console
    - CMD
+
+---
 
 ## 5. Navegar a la carpeta de despliegue
 1. Dentro de la consola CMD de Kudu ir a:
@@ -45,6 +52,8 @@
 3. Ruta final:
    site/wwwroot
 
+---
+
 ## 6. Copiar archivos del build
 1. Dentro de la carpeta dist.
 2. Entrar a la carpeta:
@@ -53,6 +62,24 @@
 4. Pegar el contenido en:
    site/wwwroot
 
-## 7. Verificación
-1. Abrir la URL de la aplicación web. https://web-pokemon-app-jma.azurewebsites.net/
-2. Verificar que el proyecto pokedex-angular esté correctamente desplegado.
+---
+
+## 7. Aplicar mejora de seguridad
+1. Crear un archivo `web.config`.
+2. Agregar los siguientes headers de seguridad en formato XML:
+   - Content-Security-Policy
+   - Strict-Transport-Security
+   - X-Content-Type-Options: nosniff
+   - X-Frame-Options: DENY
+   - Referrer-Policy: no-referrer
+3. Verificar la seguridad en: https://securityheaders.com/
+4. Obtener una calificación inicial de **A**.
+5. Ajustar el `web.config` para reforzar políticas de seguridad.
+6. Lograr una calificación final de **A+**.
+
+---
+
+## 8. Verificación del despliegue
+1. Abrir la URL de la aplicación:
+   https://web-pokemon-app-jma.azurewebsites.net/
+2. Verificar que el proyecto `pokedex-angular` esté correctamente desplegado y funcionando.
